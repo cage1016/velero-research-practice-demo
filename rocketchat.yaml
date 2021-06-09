@@ -1,0 +1,10 @@
+persistence:
+  enabled: true
+service:
+  type: LoadBalancer
+mongodb:
+  mongodbPassword: password
+  mongodbRootPassword: password
+  persistence: 
+    storageClass: local-storage
+    size: 200Mi

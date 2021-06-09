@@ -1,0 +1,124 @@
+$ velero backup describe rocketchat-backup --details
+Name:         rocketchat-backup
+Namespace:    velero
+Labels:       velero.io/storage-location=default
+Annotations:  velero.io/source-cluster-k8s-gitversion=v1.21.1
+              velero.io/source-cluster-k8s-major-version=1
+              velero.io/source-cluster-k8s-minor-version=21
+
+Phase:  Completed
+
+Errors:    0
+Warnings:  0
+
+Namespaces:
+  Included:  rocketchat
+  Excluded:  <none>
+
+Resources:
+  Included:        *
+  Excluded:        <none>
+  Cluster-scoped:  auto
+
+Label selector:  <none>
+
+Storage Location:  default
+
+Velero-Native Snapshot PVs:  auto
+
+TTL:  720h0m0s
+
+Hooks:  <none>
+
+Backup Format Version:  1.1.0
+
+Started:    2021-06-09 10:11:32 +0800 CST
+Completed:  2021-06-09 10:11:41 +0800 CST
+
+Expiration:  2021-07-09 10:11:32 +0800 CST
+
+Total items to be backed up:  59
+Items backed up:              59
+
+Resource List:
+  apps/v1/ControllerRevision:
+    - rocketchat/rocketchat-mongodb-arbiter-6d98cfbb59
+    - rocketchat/rocketchat-mongodb-primary-6fd77d9dd9
+    - rocketchat/rocketchat-mongodb-secondary-7cd46b58bf
+  apps/v1/Deployment:
+    - rocketchat/rocketchat-rocketchat
+  apps/v1/ReplicaSet:
+    - rocketchat/rocketchat-rocketchat-54546f8dcf
+  apps/v1/StatefulSet:
+    - rocketchat/rocketchat-mongodb-arbiter
+    - rocketchat/rocketchat-mongodb-primary
+    - rocketchat/rocketchat-mongodb-secondary
+  discovery.k8s.io/v1/EndpointSlice:
+    - rocketchat/rocketchat-mongodb-85nhd
+    - rocketchat/rocketchat-mongodb-headless-2cbsv
+    - rocketchat/rocketchat-rocketchat-d8wxn
+  policy/v1/PodDisruptionBudget:
+    - rocketchat/rocketchat-mongodb-arbiter
+    - rocketchat/rocketchat-mongodb-secondary
+  v1/ConfigMap:
+    - rocketchat/kube-root-ca.crt
+  v1/Endpoints:
+    - rocketchat/rocketchat-mongodb
+    - rocketchat/rocketchat-mongodb-headless
+    - rocketchat/rocketchat-rocketchat
+  v1/Event:
+    - rocketchat/datadir-rocketchat-mongodb-primary-0.1686c7b39696c02c
+    - rocketchat/rocketchat-mongodb-arbiter.1686c7b391433f88
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7b3d44fe3f8
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7b3f0f821b4
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7b6f166d91c
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7b71722c9a4
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7b71b98c740
+    - rocketchat/rocketchat-mongodb-primary-0.1686c7bad76b6e48
+    - rocketchat/rocketchat-mongodb-primary.1686c7b39696c02c
+    - rocketchat/rocketchat-mongodb-primary.1686c7b39783b198
+    - rocketchat/rocketchat-mongodb-secondary.1686c7b38fe96478
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7b40c9c933c
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7b43b810e1c
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7c427ab7a98
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7c46b16ace4
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7c46f326bc4
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z.1686c7c8faeaa0c4
+    - rocketchat/rocketchat-rocketchat-54546f8dcf.1686c7b394c8a29c
+    - rocketchat/rocketchat-rocketchat.1686c7b39117f38c
+    - rocketchat/rocketchat-rocketchat.1686c7b3926dc504
+    - rocketchat/rocketchat-rocketchat.1686c7b393a5d420
+    - rocketchat/rocketchat-rocketchat.1686c7b395a2b84c
+    - rocketchat/rocketchat-rocketchat.1686c7b3982ce790
+    - rocketchat/rocketchat-rocketchat.1686c7b3d671a9f0
+    - rocketchat/rocketchat-rocketchat.1686c7cc7cadd150
+  v1/Namespace:
+    - rocketchat
+  v1/PersistentVolume:
+    - local-persistent-storage
+    - pvc-68f26e06-bf59-4310-8b7c-f5d8f21cb6eb
+  v1/PersistentVolumeClaim:
+    - rocketchat/datadir-rocketchat-mongodb-primary-0
+    - rocketchat/rocketchat-rocketchat
+  v1/Pod:
+    - rocketchat/rocketchat-mongodb-primary-0
+    - rocketchat/rocketchat-rocketchat-54546f8dcf-p5h6z
+  v1/Secret:
+    - rocketchat/default-token-lf4c2
+    - rocketchat/rocketchat-mongodb
+    - rocketchat/rocketchat-rocketchat
+    - rocketchat/rocketchat-rocketchat-token-s4zk2
+    - rocketchat/sh.helm.release.v1.rocketchat.v1
+  v1/Service:
+    - rocketchat/rocketchat-mongodb
+    - rocketchat/rocketchat-mongodb-headless
+    - rocketchat/rocketchat-rocketchat
+  v1/ServiceAccount:
+    - rocketchat/default
+    - rocketchat/rocketchat-rocketchat
+
+Velero-Native Snapshots: <none included>
+
+Restic Backups:
+  Completed:
+    rocketchat/rocketchat-mongodb-primary-0: datadir

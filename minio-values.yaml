@@ -1,0 +1,12 @@
+global:
+  minio:
+    accessKey: minio
+    secretKey: minio123
+
+service:
+  type: LoadBalancer
+
+defaultBuckets: velero
+
+persistence:
+  size: 1G    

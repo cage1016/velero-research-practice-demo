@@ -1,0 +1,49 @@
+configuration:
+  provider: aws
+  backupStorageLocation:
+    bucket: velero
+    config:
+      region: default
+      s3ForcePathStyle: true
+      publicUrl: http://172.18.0.155:9000
+      s3Url: http://minio.minio.svc.cluster.local:9000
+  volumeSnapshotLocation:
+    config:
+      region: default
+credentials:
+  useSecret: true
+  secretContents:
+    cloud: |
+      [default]
+      aws_access_key_id = minio
+      aws_secret_access_key = minio123
+configMaps:
+  restic-restore-action-config:
+    labels:
+      velero.io/plugin-config: ""
+      velero.io/restic: RestoreItemAction
+    data:
+      image: velero/velero-restic-restore-helper:v1.6.0
+deployRestic: true
+restic:
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+resources:
+  requests:
+    cpu: 250m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.1.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins

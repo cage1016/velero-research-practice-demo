@@ -1,0 +1,51 @@
+$ velero restore describe rocketchat-backup-20210609104124 --details
+Name:         rocketchat-backup-20210609104124
+Namespace:    velero
+Labels:       <none>
+Annotations:  <none>
+
+Phase:                       PartiallyFailed (run 'velero restore logs rocketchat-backup-20210609104124' for more information)
+Total items to be restored:  34
+Items restored:              34
+
+Started:    2021-06-09 10:41:24 +0800 CST
+Completed:  2021-06-09 10:41:58 +0800 CST
+
+Warnings:
+  Velero:     <none>
+  Cluster:    <none>
+  Namespaces:
+    rocketchat:  could not restore, configmaps "kube-root-ca.crt" already exists. Warning: the in-cluster version is different than the backed-up version.
+
+Errors:
+  Velero:     <none>
+  Cluster:    <none>
+  Namespaces:
+    rocketchat:  error restoring endpointslices.discovery.k8s.io/rocketchat/rocketchat-mongodb-85nhd: the server could not find the requested resource
+                 error restoring endpointslices.discovery.k8s.io/rocketchat/rocketchat-mongodb-headless-2cbsv: the server could not find the requested resource
+                 error restoring endpointslices.discovery.k8s.io/rocketchat/rocketchat-rocketchat-d8wxn: the server could not find the requested resource
+                 error restoring poddisruptionbudgets.policy/rocketchat/rocketchat-mongodb-arbiter: the server could not find the requested resource
+                 error restoring poddisruptionbudgets.policy/rocketchat/rocketchat-mongodb-secondary: the server could not find the requested resource
+
+Backup:  rocketchat-backup
+
+Namespaces:
+  Included:  all namespaces found in the backup
+  Excluded:  <none>
+
+Resources:
+  Included:        *
+  Excluded:        nodes, events, events.events.k8s.io, backups.velero.io, restores.velero.io, resticrepositories.velero.io
+  Cluster-scoped:  auto
+
+Namespace mappings:  <none>
+
+Label selector:  <none>
+
+Restore PVs:  auto
+
+Restic Restores:
+  Completed:
+    rocketchat/rocketchat-mongodb-primary-0: datadir
+
+Preserve Service NodePorts:  auto
